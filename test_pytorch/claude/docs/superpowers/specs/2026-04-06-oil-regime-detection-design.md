@@ -174,16 +174,17 @@ where $P_{33}$ and $P_{67}$ are the 33rd and 67th percentiles of the hidden stat
 
 ```
 claude/
-  notebooks/
-    01_data_preprocessing.ipynb      # Load, merge, forward-fill datasets
-    02_shannon_entropy.ipynb          # Rolling entropy calculation
-    03_kalman_filter_regime.ipynb     # State-space model, Kalman Filter, regime detection
-    04_regime_analysis.ipynb          # Regime characteristics, visualizations, event alignment
-    05_xgboost_comparison.ipynb       # Baseline vs Enhanced XGBoost
+  01_regime_detection.ipynb    # Data loading, preprocessing, Shannon Entropy,
+                               # Kalman Filter, regime detection, visualizations,
+                               # exports processed dataset with regime features
+  02_xgboost_comparison.ipynb  # Loads processed dataset, Baseline vs Enhanced
+                               # XGBoost comparison, evaluation metrics, plots
   dataset_daily.csv
   dataset_weekly.csv
   dataset_monthly.csv
 ```
+
+The first notebook outputs a processed CSV (e.g., `dataset_with_regime.csv`) containing all original daily features plus `rolling_entropy`, `hidden_state`, and `regime_label`. The second notebook reads this CSV directly.
 
 ### Dependencies
 - `numpy`, `pandas`: data handling
